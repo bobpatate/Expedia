@@ -1,0 +1,38 @@
+# =============== #
+# Unity generated #
+# =============== #
+ProjetUnityUQAC/Temp/
+ProjetUnityUQAC/Obj/
+ProjetUnityUQAC/UnityGenerated/
+ProjetUnityUQAC/Library/
+ProjetUnityUQAC/Assets/AssetStoreTools*
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ProjetUnityUQAC/ExportedObj/
+ProjetUnityUQAC/*.svd
+ProjetUnityUQAC/*.userprefs
+ProjetUnityUQAC/*.csproj
+ProjetUnityUQAC/*.pidb
+ProjetUnityUQAC/*.suo
+ProjetUnityUQAC/*.sln*
+ProjetUnityUQAC/*.user
+ProjetUnityUQAC/*.unityproj
+ProjetUnityUQAC/*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+ProjetUnityUQAC/.DS_Store*
+ProjetUnityUQAC/._*
+ProjetUnityUQAC/.Spotlight-V100
+ProjetUnityUQAC/.Trashes
+ProjetUnityUQAC/Icon?
+ProjetUnityUQAC/ehthumbs.db
+ProjetUnityUQAC/Thumbs.db
+
+# ===================================== #
+# Unity3D Generated File On Crash Reports#
+# ===================================== #
+ProjetUnityUQAC/sysinfo.txt
