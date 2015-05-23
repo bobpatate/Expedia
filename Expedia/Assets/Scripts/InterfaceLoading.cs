@@ -4,19 +4,35 @@ using System.Collections;
 public class InterfaceLoading : MonoBehaviour {
 
     //Index of every canvas
-    const int OBJECTIVE = 2;
-    const int QUEST = 3;
-    const int EXPLORATION = 1;
-    const int MENU = 0;
+    int OBJECTIVE = 2;
+    int QUEST = 3;
+    int EXPLORATION = 1;
+    int MENU = 0;
 
     //Array of canvas
     Canvas[] canvaArray;
 
     void Start()
     {
-        //Look for every canvas and addd it to the array
-        canvaArray = GameObject.FindObjectsOfType<Canvas>();
+        SetCanvaArray();
+        
     }
+
+    //Set Canva
+    void SetCanvaArray()
+    {
+        //Look for every canvas and add it to the array
+        canvaArray = GameObject.FindObjectsOfType<Canvas>();
+
+        for(int i=0; i < canvaArray.Length; i++)
+        {
+            if (canvaArray[i].name == "Menu") MENU = i;
+            else if (canvaArray[i].name == "Quest") QUEST = i;
+            else if (canvaArray[i].name == "Objective") OBJECTIVE = i;
+            else if (canvaArray[i].name == "Exploration") EXPLORATION = i;
+        }
+    }
+
     //Canvas Loading/Unloading
     void Load(int index)
     {
@@ -39,6 +55,7 @@ public class InterfaceLoading : MonoBehaviour {
     public void Button_LoadExploration()
     {
         Load(EXPLORATION);
+        canvaArray[EXPLORATION].GetComponent<ScrollBarInterface>().Restart();
     }
 
     //Load Menu
