@@ -33,7 +33,7 @@ public class InterfaceLoading : MonoBehaviour {
         }
 
 		//Debug Load
-		Load(EXPLORATION);
+		Load(MENU);
     }
 
     //Canvas Loading/Unloading
