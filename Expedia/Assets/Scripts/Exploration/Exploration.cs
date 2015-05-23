@@ -7,23 +7,20 @@ using SimpleJSON;
 using System.Text;
 
 public class Exploration : MonoBehaviour {
-	internal float radius = 0.5f;
-	internal float playerLat = 45.511463f;
-	internal float playerLng = -73.570863f;
+	internal float radius = 0.5f; //TODO
 
-	public List<ExplorationPoint> points = new List<ExplorationPoint>(); //List of nearby points
+	private List<ExplorationPoint> points = new List<ExplorationPoint>(); //List of nearby points
 
 	private string url;
 
-	void Start() {
-		Actualize();
-	}
+	public void Actualize(){
+		Geolocalisation.Start();
+		if(!Geolocalisation.isRunning){
+			url = "http://terminal2.expedia.com:80/x/geo/features?within="+ radius +"km&lat="+ GameMaster.instance.playerLocation.coordinates[0] +"&lng="+ GameMaster.instance.playerLocation.coordinates[1] +"&type=point_of_interest&apikey=azCQTn91WiTmxxlaKWG63YZk2z1fpXxA";
 
-	void Actualize(){
-		url = "http://terminal2.expedia.com:80/x/geo/features?within="+ radius +"km&lat="+ playerLat +"&lng="+ playerLng +"&type=point_of_interest&apikey=azCQTn91WiTmxxlaKWG63YZk2z1fpXxA";
-
-		WWW www = new WWW(url);
-		StartCoroutine(WaitForRequest(www));
+			WWW www = new WWW(url);
+			StartCoroutine(WaitForRequest(www));
+		}
 	}
 	
 	IEnumerator WaitForRequest(WWW www)
@@ -32,7 +29,7 @@ public class Exploration : MonoBehaviour {
 
 
 		if (www.error == null){
-			Debug.Log("WWW Ok!: " + www.text);
+			//Debug.Log("WWW Ok!: " + www.text);
 
 			//Create and store nearby explorations points
 			var data = JSONNode.Parse(www.text);
@@ -50,20 +47,27 @@ public class Exploration : MonoBehaviour {
 				points.Add(newExpP);
 			}
 
-			//TODO: Sort by distance
-			//points.Sort
+			//Sort points by distance
+			points.Sort(CompareListBy);
 
 
 			//TODO: Generate UI
 			//TODO: Reorder UI
 			foreach(ExplorationPoint point in points)
 			{
-				print (point.name + ", " + point.position.coordinates[0] + ", " + point.position.coordinates[1]);
+				//print (point.name + ", " + point.position.coordinates[0] + ", " + point.position.coordinates[1]);
 			}
+
+			GameMaster.instance.points = points;
 
 		}
 		else {
 			Debug.Log("WWW Error: "+ www.error);
 		}    
+	}
+
+	private static int CompareListBy(ExplorationPoint expP1, ExplorationPoint expP2)
+	{
+		return expP1.distance.CompareTo(expP2.distance); 
 	}
 }

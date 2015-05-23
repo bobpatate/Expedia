@@ -3,10 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public class Geolocalisation : MonoBehaviour
-{	
-	IEnumerator Start()
+public class Geolocalisation {
+	static internal bool isRunning = false;
+	
+	static public IEnumerator Start()
 	{
+		isRunning = true;
+		
 		// First, check if user has location service enabled
 		if (!Input.location.isEnabledByUser)
 			yield break;
@@ -25,24 +28,24 @@ public class Geolocalisation : MonoBehaviour
 		// Service didn't initialize in 20 seconds
 		if (maxWait < 1)
 		{
-			print("Timed out");
+			Debug.Log("Timed out");
 			yield break;
 		}
 		
 		// Connection has failed
 		if (Input.location.status == LocationServiceStatus.Failed)
 		{
-			print("Unable to determine device location");
+			Debug.Log("Unable to determine device location");
 			yield break;
 		}
 		else
 		{ 
-			Text text = GameObject.Find("Canvas").transform.FindChild("Infos").GetComponent<Text>();
-			text.text = "Location: " + Input.location.lastData.latitude + "  " + Input.location.lastData.longitude;
 			// Access granted and location value could be retrieved
+			GameMaster.instance.playerLocation = new Position("point", Input.location.lastData.latitude, Input.location.lastData.longitude);
 		}
 		
 		// Stop service if there is no need to query location updates continuously
+		isRunning = false;
 		Input.location.Stop();
 	}
 }

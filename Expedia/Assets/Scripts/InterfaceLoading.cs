@@ -7,7 +7,7 @@ public class InterfaceLoading : MonoBehaviour {
     //Index of every canvas
     int OBJECTIVE;
     int QUEST;
-    int EXPLORATION ;
+    int EXPLORATION;
     int MENU;
     int COLLECTION;
 
@@ -17,16 +17,8 @@ public class InterfaceLoading : MonoBehaviour {
     //Array of canvas
     Canvas[] canvaArray;
 
-    void Start()
-    {
-        SetCanvaArray();
-
-        //Debug Load
-        Load(EXPLORATION);
-    }
-
     //Set Canvas
-    void SetCanvaArray()
+    public void SetCanvaArray()
     {
         //Look for every canvas and add it to the array
         canvaArray = GameObject.FindObjectsOfType<Canvas>();
@@ -39,6 +31,9 @@ public class InterfaceLoading : MonoBehaviour {
             else if (canvaArray[i].name == "Exploration") EXPLORATION = i;
             else if (canvaArray[i].name == "Collection") COLLECTION = i;
         }
+
+		//Debug Load
+		Load(EXPLORATION);
     }
 
     //Canvas Loading/Unloading
@@ -57,6 +52,12 @@ public class InterfaceLoading : MonoBehaviour {
         if (canvaArray[index].name != "Menu") canvaArray[index].transform.FindChild("Panel").GetComponent<Animation>().Play();
         else canvaArray[index].transform.FindChild("Panel").GetComponent<Animation>().Rewind();
         //canvaArray[index].enabled = true;
+
+		//Start exploration actualization
+		if(index == EXPLORATION)
+			StartCoroutine("refreshExploration");
+		else
+			StopCoroutine("refreshExploration");
     }
 
     //------------------------------------------------------------------------------------------
@@ -68,6 +69,7 @@ public class InterfaceLoading : MonoBehaviour {
     {
         Load(EXPLORATION);
         canvaArray[EXPLORATION].GetComponent<ScrollBarInterface>().Restart();
+		
     }
 
     //Load Menu
@@ -87,4 +89,9 @@ public class InterfaceLoading : MonoBehaviour {
     {
         Load(QUEST);
     }
+
+	IEnumerator refreshExploration(){
+		GetComponent<Exploration>().Actualize();
+		yield return new WaitForSeconds(15f);
+	}
 }

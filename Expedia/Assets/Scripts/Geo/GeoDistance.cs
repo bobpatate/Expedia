@@ -2,19 +2,7 @@
 using System.Collections;
 using System;
 
-public class GeoDistance : MonoBehaviour {
-
-	// Use this for initialization
-	void Start ()
-	{
-		Debug.Log(calc(45.511969, -73.569880, 45.5579957, -73.5518816, 'K'));
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+public class GeoDistance {
 	//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	//:::                                                                         :::
 	//:::  This routine calculates the distance between two points (given the     :::
@@ -43,7 +31,7 @@ public class GeoDistance : MonoBehaviour {
 	//:::                                                                         :::
 	//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-	private double calc(double lat1, double lon1, double lat2, double lon2, char unit) {
+	static public double calc(double lat1, double lon1, double lat2, double lon2, char unit) {
 		double theta = lon1 - lon2;
 		double dist = Math.Sin(deg2rad(lat1)) * Math.Sin(deg2rad(lat2)) + Math.Cos(deg2rad(lat1)) * Math.Cos(deg2rad(lat2)) * Math.Cos(deg2rad(theta));
 		dist = Math.Acos(dist);
@@ -60,14 +48,14 @@ public class GeoDistance : MonoBehaviour {
 	//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	//::  This function converts decimal degrees to radians             :::
 	//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-	private double deg2rad(double deg) {
+	static private double deg2rad(double deg) {
 			return (deg * Mathf.PI / 180.0);
 	}
 		
 	//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	//::  This function converts radians to decimal degrees             :::
 	//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-	private double rad2deg(double rad) {
+	static private double rad2deg(double rad) {
 			return (rad / Mathf.PI * 180.0);
 	}
 }

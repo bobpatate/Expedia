@@ -32,7 +32,7 @@ public class CharacterStats : MonoBehaviour {
         title = titleList[level - 1];
     }
 
-    void OnStartup() //Only use on startup
+    public void OnStartup() //Only use on startup
     {
         int tempLevel = 1;
         int xpTotal = 0; //Set from save file TODO
@@ -67,10 +67,5 @@ public class CharacterStats : MonoBehaviour {
     public float PourcentageToNextLevel()
     {
         return (float)currentLevelXP / (float)xpTier[level - 1]; //Returns the % of xp until next level
-    }
-
-    void Start()
-    {
-        OnStartup();
     }
 }

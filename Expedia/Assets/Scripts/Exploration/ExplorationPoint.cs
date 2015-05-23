@@ -11,6 +11,8 @@ public class ExplorationPoint {
 	public Position position {get; private set;}
 	public string status {get; private set;}
 
+	public double distance {get; private set;}
+
 	public ExplorationPoint(uint _id, string _type, string _name, uint _srcId, uint _systemId, string _posType, double _lat, double _lng, string _status){
 		id = _id;
 		type = _type;
@@ -20,6 +22,9 @@ public class ExplorationPoint {
 		Position _position = new Position(_posType,_lat, _lng);
 		position = _position;
 		status = _status;
+
+		distance = GeoDistance.calc(GameMaster.instance.playerLocation.coordinates[0], GameMaster.instance.playerLocation.coordinates[1],
+		                            position.coordinates[0], position.coordinates[1], 'K');
 	}
 }
 
