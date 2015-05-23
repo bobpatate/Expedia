@@ -44,12 +44,23 @@ public class Exploration : MonoBehaviour {
 				                                                (uint)data[i]["source"]["srcId"].AsInt,
 				                                                (uint)data[i]["source"]["systemId"].AsInt,
 				                                                (string) data[i]["position"]["type"],
-				                                                (double)data[i]["position"]["coordinates"][0].AsInt,
-				                                                (double)data[i]["position"]["coordinates"][1].AsInt,
+				                                                data[i]["position"]["coordinates"][0].AsDouble,
+				                                                data[i]["position"]["coordinates"][1].AsDouble,
 				                                                (string)data[i]["status"]);
-
 				points.Add(newExpP);
 			}
+
+			//TODO: Sort by distance
+			//points.Sort
+
+
+			//TODO: Generate UI
+			//TODO: Reorder UI
+			foreach(ExplorationPoint point in points)
+			{
+				print (point.name + ", " + point.position.coordinates[0] + ", " + point.position.coordinates[1]);
+			}
+
 		}
 		else {
 			Debug.Log("WWW Error: "+ www.error);
