@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class InterfaceLoading : MonoBehaviour {
 
     //Index of every canvas
-    int OBJECTIVE = 2;
-    int QUEST = 3;
-    int EXPLORATION = 1;
-    int MENU = 0;
+    int OBJECTIVE;
+    int QUEST;
+    int EXPLORATION ;
+    int MENU;
+    int COLLECTION;
+
+    //Index of the menu panel
+    int menuPanel;
 
     //Array of canvas
     Canvas[] canvaArray;
@@ -15,10 +20,12 @@ public class InterfaceLoading : MonoBehaviour {
     void Start()
     {
         SetCanvaArray();
-        
+
+        //Debug Load
+        Load(EXPLORATION);
     }
 
-    //Set Canva
+    //Set Canvas
     void SetCanvaArray()
     {
         //Look for every canvas and add it to the array
@@ -30,6 +37,7 @@ public class InterfaceLoading : MonoBehaviour {
             else if (canvaArray[i].name == "Quest") QUEST = i;
             else if (canvaArray[i].name == "Objective") OBJECTIVE = i;
             else if (canvaArray[i].name == "Exploration") EXPLORATION = i;
+            else if (canvaArray[i].name == "Collection") COLLECTION = i;
         }
     }
 
@@ -40,11 +48,15 @@ public class InterfaceLoading : MonoBehaviour {
         {
             if (i != index)
             {
-                canvaArray[i].enabled = false;
+                if (canvaArray[i].name != "Menu") canvaArray[i].transform.FindChild("Panel").GetComponent<Animation>().Rewind();
+                else canvaArray[i].transform.FindChild("Panel").GetComponent<Animation>().Play(); //The anim for the Menu is reversed
+                //canvaArray[i].enabled = false;
             }
         }
-        
-        canvaArray[index].enabled = true;
+
+        if (canvaArray[index].name != "Menu") canvaArray[index].transform.FindChild("Panel").GetComponent<Animation>().Play();
+        else canvaArray[index].transform.FindChild("Panel").GetComponent<Animation>().Rewind();
+        //canvaArray[index].enabled = true;
     }
 
     //------------------------------------------------------------------------------------------

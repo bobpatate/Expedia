@@ -48,7 +48,6 @@ public class ScrollBarInterface : MonoBehaviour {
         for(int i=0; i < number; i++)
         {
             currentPos = currentPos + offsetBetweenButton;
-            Debug.Log(offsetBetweenButton);
             Button tempButton = Instantiate(buttonModel) as Button;
             tempButton.transform.SetParent(scrollBar.transform);
             tempButton.GetComponent<RectTransform>().localPosition = new Vector3(0, currentPos, 0);
