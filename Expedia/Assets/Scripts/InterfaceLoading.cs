@@ -4,10 +4,10 @@ using System.Collections;
 public class InterfaceLoading : MonoBehaviour {
 
     //Index of every canvas
-    const int QUEST = 1;
     const int OBJECTIVE = 0;
-    const int MENU = 3;
+    const int QUEST = 1;
     const int EXPLORATION = 2;
+    const int MENU = 3;
 
     //Array of canvas
     Canvas[] canvaArray;
