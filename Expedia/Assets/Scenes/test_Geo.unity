@@ -497,6 +497,7 @@ GameObject:
   - 65: {fileID: 1589935176}
   - 23: {fileID: 1589935175}
   - 114: {fileID: 1589935174}
+  - 114: {fileID: 1589935179}
   m_Layer: 0
   m_Name: Cube 1
   m_TagString: Untagged
@@ -570,6 +571,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1589935179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589935173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faa42e1fadd14f3e8c4a92b22048f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1622674703
 GameObject:
   m_ObjectHideFlags: 0
