@@ -8,6 +8,7 @@ public class StatsInterface : MonoBehaviour {
     public Text titleText;
     public Text numberBigTrophy;
     public Text numberSmallTrophy;
+    public Text level;
     public GameObject xpBar;
     private CharacterStats charStats;
     private int smalltrophy = 0;
@@ -31,6 +32,12 @@ public class StatsInterface : MonoBehaviour {
     {
         xpBar.transform.localScale = new Vector3(charStats.PourcentageToNextLevel(), 1, 1);
         xpText.text = charStats.GetCurrentLevelXP().ToString() + "/" + charStats.GetCurrentXpGoal();
+        SetLevel();
+    }
+
+    private void SetLevel()
+    {
+        charStats.GetLevel();
     }
 
     private void SetTitle()

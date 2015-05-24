@@ -2814,6 +2814,7 @@ MonoBehaviour:
   titleText: {fileID: 2090811589}
   numberBigTrophy: {fileID: 1314835680}
   numberSmallTrophy: {fileID: 1314835680}
+  level: {fileID: 501557814}
   xpBar: {fileID: 458909137}
 --- !u!1 &716600172
 GameObject:
@@ -6588,8 +6589,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 148, y: -156}
-  m_SizeDelta: {x: 500, y: 400}
+  m_AnchoredPosition: {x: 173, y: -156}
+  m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2090811589
 MonoBehaviour:
@@ -6616,7 +6617,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Title
 --- !u!222 &2090811590
 CanvasRenderer:
   m_ObjectHideFlags: 0
