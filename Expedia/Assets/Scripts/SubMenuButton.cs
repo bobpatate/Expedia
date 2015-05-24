@@ -51,7 +51,7 @@ public class SubMenuButton : MonoBehaviour {
 
 	public void click(){
 		if(canTake){
-			//TODO add trophy, pop-up, actualize nbr trophies
+			//TODO pop-up
 			//Add to ignore list
 			gameMaster.pointsToIgnore.Add(point);
 
