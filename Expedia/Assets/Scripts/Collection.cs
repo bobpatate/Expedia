@@ -15,7 +15,9 @@ public class Collection : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-	
+		int smalltrophy = PlayerPrefs.GetInt("STrophy");
+		int largetrophy = PlayerPrefs.GetInt("LTrophy");
+		//TODO faire afficher les données dans textbox
 	}
 
 	public void addSmallTrophy()
