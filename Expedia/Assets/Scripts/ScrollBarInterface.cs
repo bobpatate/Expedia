@@ -45,10 +45,17 @@ public class ScrollBarInterface : MonoBehaviour {
         
 		//Create buttons
 		bool first = true;
-		foreach(ExplorationPoint point in GameMaster.instance.points)
-        {
-            if(!GameMaster.instance.pointsToIgnore.Contains(point)){
+		
+		foreach(ExplorationPoint point in GameMaster.instance.points){
+			bool skip = false;
+			foreach(ExplorationPoint pointMaybeIgnore in GameMaster.instance.pointsToIgnore){
+				if(point.name == pointMaybeIgnore.name){
+					skip = true;
+					break;
+				}
+			}
 
+			if(!skip){
 				if(!first)
 					currentPos = currentPos + offsetBetweenButton;
 
