@@ -48,8 +48,7 @@ public class ScrollBarInterface : MonoBehaviour {
         {
             if(!first)
 				currentPos = currentPos + offsetBetweenButton;
-			else
-				currentPos = currentPos;
+
 			first = false;
 
             Button tempButton = Instantiate(buttonModel) as Button;
@@ -59,7 +58,12 @@ public class ScrollBarInterface : MonoBehaviour {
 
 			tempButton.tag = "subMenuButton";
 			tempButton.gameObject.AddComponent<SubMenuButton>();
-			tempButton.GetComponent<SubMenuButton>().setText(point.name, Math.Round(point.distance, 3));
+			tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name), Math.Round(point.distance, 3));
         }
+    }
+
+    private string RemoveLastPartOfPOI(string text)
+    {
+        return text.Substring(0, text.IndexOf(','));
     }
 }
