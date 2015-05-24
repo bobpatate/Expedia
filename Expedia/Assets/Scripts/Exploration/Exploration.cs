@@ -31,6 +31,9 @@ public class Exploration : MonoBehaviour {
 		if (www.error == null){
 			//Debug.Log("WWW Ok!: " + www.text);
 
+			//Empty list
+			points.RemoveAll();
+
 			//Create and store nearby explorations points
 			var data = JSONNode.Parse(www.text);
 			for(int i=0; i<data.Count; i++){

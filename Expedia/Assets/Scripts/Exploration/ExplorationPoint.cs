@@ -25,7 +25,6 @@ public class ExplorationPoint {
 
 		distance = GeoDistance.calc(GameMaster.instance.playerLocation.coordinates[0], GameMaster.instance.playerLocation.coordinates[1],
 		                            position.coordinates[0], position.coordinates[1], 'K');
-		Debug.Log(distance);
 	}
 }
 
