@@ -65,6 +65,7 @@ public class SubMenuButton : MonoBehaviour {
 
 			//Add xp/trophy
 			gameMaster.GetComponent<CharacterStats>().AddXp(10);
+            GameObject.Find("Popup").GetComponent<PopUp_Script>().StartUp(name, 10);
 			stats.addSmallTrophy();
 			stats.OnLoad();
 		}

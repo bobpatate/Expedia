@@ -8,9 +8,8 @@ public class PopUp_Script : MonoBehaviour {
     private Text xpGained;
     public Canvas This;
     
-	void OnStart()
+	void Start()
     {
-        GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -137);
         name = transform.FindChild("Name").GetComponent<Text>();
         xpGained = transform.FindChild("XpGained").GetComponent<Text>();
     }
