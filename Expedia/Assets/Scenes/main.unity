@@ -378,7 +378,7 @@ GameObject:
   - 114: {fileID: 459679101}
   - 114: {fileID: 459679100}
   m_Layer: 5
-  m_Name: Exploration
+  m_Name: ExplorationBtm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -949,7 +949,7 @@ GameObject:
   - 114: {fileID: 747791716}
   - 114: {fileID: 747791715}
   m_Layer: 5
-  m_Name: Collection
+  m_Name: CollectionBtm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,7 +1220,7 @@ GameObject:
   - 114: {fileID: 999432039}
   - 114: {fileID: 999432038}
   m_Layer: 5
-  m_Name: Objective
+  m_Name: ObjectiveBtm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2735,7 +2735,7 @@ GameObject:
   - 114: {fileID: 2088373405}
   - 114: {fileID: 2088373404}
   m_Layer: 5
-  m_Name: Quest
+  m_Name: QuestBtm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

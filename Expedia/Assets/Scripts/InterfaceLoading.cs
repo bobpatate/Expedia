@@ -50,7 +50,7 @@ public class InterfaceLoading : MonoBehaviour {
         }
 
         if (canvaArray[index].name != "Menu") canvaArray[index].transform.FindChild("Panel").GetComponent<Animation>().Play();
-        else canvaArray[index].transform.FindChild("Panel").GetComponent<Animation>().Rewind();
+        else canvaArray[index].transform.FindChild("Panel").GetComponent<Animation>().Play();
         //canvaArray[index].enabled = true;
 
 		//Start exploration actualization
