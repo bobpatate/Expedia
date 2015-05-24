@@ -31,9 +31,6 @@ public class InterfaceLoading : MonoBehaviour {
             else if (canvaArray[i].name == "Exploration") EXPLORATION = i;
             else if (canvaArray[i].name == "Collection") COLLECTION = i;
         }
-
-		//Debug Load
-		Load(MENU);
     }
 
     //Canvas Loading/Unloading
