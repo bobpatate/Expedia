@@ -8,6 +8,8 @@ public class SubMenuButton : MonoBehaviour {
 	public string name;
 	public double dist;
 
+	public bool canTake = false;
+	public float canTakeDist = 0.1f;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +18,12 @@ public class SubMenuButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(!canTake && dist < canTakeDist){
+			canTake = true;
+		}
+		else{
+			//TODO can take look
+		}
 	}
 
 	public void setText(string newText, double newText1){
@@ -29,5 +36,11 @@ public class SubMenuButton : MonoBehaviour {
 
 	public void obtainExp(){
 		
+	}
+
+	public void click(){
+		if(canTake){
+			//TODO take
+		}
 	}
 }
