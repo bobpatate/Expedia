@@ -9,11 +9,11 @@ public class SubMenuButton : MonoBehaviour {
 	public double dist;
 
 	public bool canTake = false;
-	public float canTakeDist = 0.1f;
+	public float canTakeDist = 0.195f;
 
 	// Use this for initialization
 	void Start () {
-		
+		GetComponent<Button>().interactable = false;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +22,7 @@ public class SubMenuButton : MonoBehaviour {
 			canTake = true;
 			GetComponent<Button>().interactable = true;
 		}
-		else{ //Can't take
+		else if(canTake && dist > canTakeDist){ //Can't take
 			canTake = false;
 			GetComponent<Button>().interactable = false;
 		}
@@ -43,7 +43,7 @@ public class SubMenuButton : MonoBehaviour {
 	public void click(){
 		Debug.Log("sss");
 		if(canTake){
-			//TODO take, add to a taken list, compare when creating list, reset list to delete item, add exp, add trophy
+			//TODO take, add to a taken list, compare when creating list, reset list to delete item, add exp, add trophy, pop-up
 		}
 	}
 }

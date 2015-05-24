@@ -26,6 +26,7 @@ public class ScrollBarInterface : MonoBehaviour {
     public void Restart()
     {
         ResetScrollBarPos();
+		buttonModel.GetComponent<Image>().enabled = true;
     }
 
     //Reset the scroll bar to the top of the window
@@ -61,6 +62,8 @@ public class ScrollBarInterface : MonoBehaviour {
             tempButton.GetComponent<Button>().onClick.AddListener(() => tempButton.GetComponent<SubMenuButton>().click());
 			tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name), Math.Round(point.distance, 3));
         }
+
+		buttonModel.GetComponent<Image>().enabled = false;
     }
 
     private string RemoveLastPartOfPOI(string text)
