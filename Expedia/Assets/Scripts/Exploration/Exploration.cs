@@ -51,11 +51,13 @@ public class Exploration : MonoBehaviour {
 			points.Sort(CompareListBy);
 
 
-			//TODO: Generate UI
+			//Generate UI
+			GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().SetNumberOfButtons();
+
 			//TODO: Reorder UI
 			foreach(ExplorationPoint point in points)
 			{
-				//print (point.name + ", " + point.position.coordinates[0] + ", " + point.position.coordinates[1]);
+				//Debug.Log(point.name + ", " + point.position.coordinates[0] + ", " + point.position.coordinates[1]);
 			}
 
 			GameMaster.instance.points = points;

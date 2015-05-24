@@ -19,9 +19,6 @@ public class ScrollBarInterface : MonoBehaviour {
 
         //Set offset with the height of the button + 10
         offsetBetweenButton = -(buttonModel.GetComponent<RectTransform>().rect.height - 3);
-
-        //For Debuggging
-        SetNumberOfButtons(5);
     }
 
     //Reset the exploration interface
@@ -36,16 +33,16 @@ public class ScrollBarInterface : MonoBehaviour {
         scrollBar.transform.position = scrollBarPos;
     }
 
-    void SetNumberOfButtons(int number)
+    public void SetNumberOfButtons()
     {
         float currentPos = buttonModel.GetComponent<RectTransform>().localPosition.y;
 
         //Change the size in Y of the scrolling bar to accomodate more button
-        float scrollBarSize = buttonModel.GetComponent<RectTransform>().rect.height * number; //The +2 is to accomodate the elastic effect when the scrolling arrives at the end
+		float scrollBarSize = buttonModel.GetComponent<RectTransform>().rect.height * GameMaster.instance.points.Count; //The +2 is to accomodate the elastic effect when the scrolling arrives at the end
         scrollBar.GetComponent<RectTransform>().sizeDelta = new Vector2(475, scrollBarSize);
         
 
-        for(int i=0; i < number; i++)
+		foreach(ExplorationPoint point in GameMaster.instance.points)
         {
             currentPos = currentPos + offsetBetweenButton;
             Button tempButton = Instantiate(buttonModel) as Button;

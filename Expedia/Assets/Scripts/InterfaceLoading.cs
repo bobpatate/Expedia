@@ -76,6 +76,10 @@ public class InterfaceLoading : MonoBehaviour {
     public void Button_LoadMenu()
     {
         Load(MENU);
+		GameObject[] buttonsToRemove = GameObject.FindGameObjectsWithTag("subMenuButton");
+		foreach(GameObject GO in buttonsToRemove){
+			Destroy(GO);
+		}
     }
 
     //Load Objective
