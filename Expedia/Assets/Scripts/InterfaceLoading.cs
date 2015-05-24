@@ -41,7 +41,7 @@ public class InterfaceLoading : MonoBehaviour {
             if (i != index)
             {
                 if (canvaArray[i].name == "Menu") canvaArray[i].transform.FindChild("Panel").GetComponent<Animation>().Play(); //The anim for the Menu is reversed
-                else canvaArray[i].enabled = false;
+                else if (canvaArray[i].name != "Popup") canvaArray[i].enabled = false;
             }
         }
 

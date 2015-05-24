@@ -81,10 +81,10 @@ public class ScrollBarInterface : MonoBehaviour {
 				tempButton.gameObject.AddComponent<SubMenuButton>();
 	            tempButton.GetComponent<Button>().onClick.AddListener(() => tempButton.GetComponent<SubMenuButton>().click());
 				if(isExploration){
-					tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name), Math.Round(point.distance, 3));
+					tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name), Math.Round(point.distance, 3), true);
 				}
 				else{
-					tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name));
+					tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name), Math.Round(point.distance, 3), false);
 				}
 				tempButton.GetComponent<SubMenuButton>().point = point;
 			}
