@@ -36,19 +36,29 @@ public class ScrollBarInterface : MonoBehaviour {
 	public void GenerateButtons()
     {
         float currentPos = buttonModel.GetComponent<RectTransform>().localPosition.y;
-
+		
         //Change the size in Y of the scrolling bar to accomodate more button
 		float scrollBarSize = buttonModel.GetComponent<RectTransform>().rect.height * GameMaster.instance.points.Count; //The +2 is to accomodate the elastic effect when the scrolling arrives at the end
         scrollBar.GetComponent<RectTransform>().sizeDelta = new Vector2(475, scrollBarSize);
         
-
+		//Create buttons
+		bool first = true;
 		foreach(ExplorationPoint point in GameMaster.instance.points)
         {
-            currentPos = currentPos + offsetBetweenButton;
+            if(!first)
+				currentPos = currentPos + offsetBetweenButton;
+			else
+				currentPos = currentPos;
+			first = false;
+
             Button tempButton = Instantiate(buttonModel) as Button;
             tempButton.transform.SetParent(scrollBar.transform);
             tempButton.GetComponent<RectTransform>().localPosition = new Vector3(0, currentPos, 0);
             tempButton.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+
+			tempButton.tag = "subMenuButton";
+			tempButton.gameObject.AddComponent<SubMenuButton>();
+			tempButton.GetComponent<SubMenuButton>().setText(point.name, point.distance);
         }
     }
 }

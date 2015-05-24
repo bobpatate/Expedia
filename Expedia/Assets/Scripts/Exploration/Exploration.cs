@@ -50,18 +50,17 @@ public class Exploration : MonoBehaviour {
 			//Sort points by distance
 			points.Sort(CompareListBy);
 
+			//Record in GameMaster
+			GameMaster.instance.points = points;
 
 			//Generate UI
 			GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().GenerateButtons();
 
 			//TODO: Reorder UI
-			foreach(ExplorationPoint point in points)
+			foreach(ExplorationPoint point in GameMaster.instance.points)
 			{
 				//Debug.Log(point.name + ", " + point.position.coordinates[0] + ", " + point.position.coordinates[1]);
 			}
-
-			GameMaster.instance.points = points;
-
 		}
 		else {
 			Debug.Log("WWW Error: "+ www.error);
