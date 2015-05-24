@@ -62,7 +62,7 @@ public class CharacterStats : MonoBehaviour {
         currentLevelXP += amountXP; //Add xp to current level
 		PlayerPrefs.SetInt("XP", experience);
 
-        if (currentLevelXP > xpTier[level-1]) //If the xp is higher than the current milestone -> Level Up
+        if (currentLevelXP >= xpTier[level-1]) //If the xp is higher than the current milestone -> Level Up
         {
             currentLevelXP = currentLevelXP - xpTier[level - 1]; //Calculate the current xp - current xp tier to see how much to the next tier you are
             LevelUp();
