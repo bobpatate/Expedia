@@ -61,7 +61,7 @@ public class SubMenuButton : MonoBehaviour {
 
 			//Pop-up and quit interface
 			//TODO Call pop-up
-			gameMaster.GetComponent<InterfaceLoading>().Button_LoadMenu();
+            gameMaster.GetComponent<InterfaceLoading>().Button_LoadMenu();
 
 			//Add xp/trophy
 			gameMaster.GetComponent<CharacterStats>().AddXp(10);
