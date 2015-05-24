@@ -7,7 +7,7 @@ using SimpleJSON;
 using System.Text;
 
 public class Objectives : MonoBehaviour {
-	internal float radius = 1.5f;
+	internal float radius = 1.2f;
 	private List<ExplorationPoint> points = new List<ExplorationPoint>(); //List of all points
 	
 	private string url;
@@ -48,6 +48,7 @@ public class Objectives : MonoBehaviour {
 				                                                data[i]["position"]["coordinates"][0].AsDouble,
 				                                                (string)data[i]["status"]);
 				points.Add(newExpP);
+				Debug.Log (newExpP.position.coordinates[0]);
 			}
 			
 			//Sort points by distance
