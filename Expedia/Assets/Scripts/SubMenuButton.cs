@@ -18,11 +18,13 @@ public class SubMenuButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!canTake && dist < canTakeDist){
+		if(!canTake && dist < canTakeDist){ //Can take
 			canTake = true;
+			GetComponent<Button>().interactable = true;
 		}
-		else{
-			//TODO can take look
+		else{ //Can't take
+			canTake = false;
+			GetComponent<Button>().interactable = false;
 		}
 	}
 
@@ -39,7 +41,7 @@ public class SubMenuButton : MonoBehaviour {
 	}
 
 	public void click(){
-		Debug.Log("sup");
+		Debug.Log("sss");
 		if(canTake){
 			//TODO take, add to a taken list, compare when creating list, reset list to delete item, add exp, add trophy
 		}
