@@ -871,6 +871,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: c45c63d821294e444833e892bbffe056, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: c45c63d821294e444833e892bbffe056, type: 2}
+  - {fileID: 7400000, guid: 54d25dc31a250df4fba014015df463c7, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -1712,7 +1713,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 1388, y: 1249}
+  m_AnchoredPosition: {x: 1388, y: 1172}
   m_SizeDelta: {x: 520, y: 350}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1295623829
