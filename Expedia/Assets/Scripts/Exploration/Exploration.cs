@@ -52,7 +52,7 @@ public class Exploration : MonoBehaviour {
 
 
 			//Generate UI
-			GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().SetNumberOfButtons();
+			GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().GenerateButtons();
 
 			//TODO: Reorder UI
 			foreach(ExplorationPoint point in points)

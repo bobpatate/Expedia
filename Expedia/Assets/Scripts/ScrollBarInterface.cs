@@ -33,7 +33,7 @@ public class ScrollBarInterface : MonoBehaviour {
         scrollBar.transform.position = scrollBarPos;
     }
 
-    public void SetNumberOfButtons()
+	public void GenerateButtons()
     {
         float currentPos = buttonModel.GetComponent<RectTransform>().localPosition.y;
 
