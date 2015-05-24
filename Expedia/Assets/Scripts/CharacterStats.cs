@@ -15,6 +15,8 @@ public class CharacterStats : MonoBehaviour {
 
     //Accessor
     public int GetExperience() { return experience; }
+    public int GetCurrentXpGoal() { return xpTier[level]; }
+    public int GetCurrentLevelXP() { return currentLevelXP; }
     public int GetLevel() { return level; }
     public string GetTitle() { return title; }
     public float GetViewRange() { return viewRange; }
