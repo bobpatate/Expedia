@@ -8,12 +8,13 @@ using System.Text;
 
 public class Exploration : MonoBehaviour {
 	internal float radius = 0.5f; //TODO
-
 	private List<ExplorationPoint> points = new List<ExplorationPoint>(); //List of nearby points
 
 	private string url;
 
 	public void Actualize(){
+		radius = GameObject.Find("GameMaster").GetComponent<CharacterStats>().GetViewRange() * 0.001f;
+		
 		Geolocalisation.Start();
 		if(!Geolocalisation.isRunning){
 			url = "http://terminal2.expedia.com:80/x/geo/features?within="+ radius +"km&lat="+ GameMaster.instance.playerLocation.coordinates[0] +"&lng="+ GameMaster.instance.playerLocation.coordinates[1] +"&type=point_of_interest&apikey=azCQTn91WiTmxxlaKWG63YZk2z1fpXxA";
@@ -60,7 +61,6 @@ public class Exploration : MonoBehaviour {
 			//Generate UI
 			GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().GenerateButtons();
 
-			//TODO: Reorder UI
 			foreach(ExplorationPoint point in GameMaster.instance.points)
 			{
 				//Debug.Log(point.name + ", " + point.position.coordinates[0] + ", " + point.position.coordinates[1]);
