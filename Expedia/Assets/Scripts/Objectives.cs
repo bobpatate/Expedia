@@ -7,7 +7,7 @@ using SimpleJSON;
 using System.Text;
 
 public class Objectives : MonoBehaviour {
-	internal float radius = 5f;
+	internal float radius = 1.5f;
 	private List<ExplorationPoint> points = new List<ExplorationPoint>(); //List of all points
 	
 	private string url;

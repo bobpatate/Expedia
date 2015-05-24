@@ -83,6 +83,7 @@ public class InterfaceLoading : MonoBehaviour {
     {
         Load(OBJECTIVE);
 		canvaArray[OBJECTIVE].GetComponent<ScrollBarInterface>().Restart();
+		GetComponent<Objectives>().Actualize();
     }
 
     //Load Quest
