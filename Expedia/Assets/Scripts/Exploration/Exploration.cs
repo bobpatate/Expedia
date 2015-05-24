@@ -61,7 +61,6 @@ public class Exploration : MonoBehaviour {
 			//Generate UI
 			GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().GenerateButtons();
 
-			//TODO: Reorder UI
 			foreach(ExplorationPoint point in GameMaster.instance.points)
 			{
 				//Debug.Log(point.name + ", " + point.position.coordinates[0] + ", " + point.position.coordinates[1]);
