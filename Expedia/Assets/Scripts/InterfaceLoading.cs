@@ -82,10 +82,7 @@ public class InterfaceLoading : MonoBehaviour {
     public void Button_LoadObjective()
     {
         Load(OBJECTIVE);
-		GameObject[] buttonsToRemove = GameObject.FindGameObjectsWithTag("subMenuButton");
-		foreach(GameObject GO in buttonsToRemove){
-			Destroy(GO);
-		}
+		canvaArray[OBJECTIVE].GetComponent<ScrollBarInterface>().Restart();
     }
 
     //Load Quest
