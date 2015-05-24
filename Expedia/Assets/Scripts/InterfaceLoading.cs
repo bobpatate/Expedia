@@ -99,11 +99,6 @@ public class InterfaceLoading : MonoBehaviour {
 
 
 	void refreshExploration(){
-		GameObject[] buttonsToRemove = GameObject.FindGameObjectsWithTag("subMenuButton");
-		foreach(GameObject GO in buttonsToRemove){
-			Destroy(GO);
-		}
-		GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().GenerateButtons();
 		GetComponent<Exploration>().Actualize();
 	}
 }
