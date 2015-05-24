@@ -9,7 +9,7 @@ public class InterfaceLoading : MonoBehaviour {
     int QUEST;
     int EXPLORATION;
     int MENU;
-    int COLLECTION;
+    int STATS;
 
     //Index of the menu panel
     int menuPanel;
@@ -29,7 +29,7 @@ public class InterfaceLoading : MonoBehaviour {
             else if (canvaArray[i].name == "Quest") QUEST = i;
             else if (canvaArray[i].name == "Objective") OBJECTIVE = i;
             else if (canvaArray[i].name == "Exploration") EXPLORATION = i;
-            else if (canvaArray[i].name == "Collection") COLLECTION = i;
+            else if (canvaArray[i].name == "Stats") STATS = i;
         }
     }
 
@@ -91,7 +91,7 @@ public class InterfaceLoading : MonoBehaviour {
 
     public void Button_LoadCollection()
     {
-        Load(COLLECTION);
+        Load(STATS);
     }
 
 	IEnumerator refreshExploration(){
