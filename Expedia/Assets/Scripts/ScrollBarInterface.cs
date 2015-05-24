@@ -68,6 +68,6 @@ public class ScrollBarInterface : MonoBehaviour {
 
     private string RemoveLastPartOfPOI(string text)
     {
-        return text.Substring(0, text.IndexOf(','));
+        return "Visit: " + text.Substring(0, text.IndexOf(','));
     }
 }
