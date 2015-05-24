@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameMaster : MonoBehaviour {
-
+	#if UNITY_EDITOR
+	//A utiliser si le build est stuck dans une résolutiuon
+	[MenuItem("Edit/Reset Playerprefs")] public static void DeletePlayerPrefs() { PlayerPrefs.DeleteAll(); }
+	#endif
+	
 	//Singleton
 	private static GameMaster _instance;
 	public static GameMaster instance{

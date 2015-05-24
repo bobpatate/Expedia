@@ -47,20 +47,24 @@ public class ScrollBarInterface : MonoBehaviour {
 		bool first = true;
 		foreach(ExplorationPoint point in GameMaster.instance.points)
         {
-            if(!first)
-				currentPos = currentPos + offsetBetweenButton;
+            if(!GameMaster.instance.pointsToIgnore.Contains(point)){
 
-			first = false;
+				if(!first)
+					currentPos = currentPos + offsetBetweenButton;
 
-            Button tempButton = Instantiate(buttonModel) as Button;
-            tempButton.transform.SetParent(scrollBar.transform);
-            tempButton.GetComponent<RectTransform>().localPosition = new Vector3(0, currentPos, 0);
-            tempButton.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+				first = false;
 
-			tempButton.tag = "subMenuButton";
-			tempButton.gameObject.AddComponent<SubMenuButton>();
-            tempButton.GetComponent<Button>().onClick.AddListener(() => tempButton.GetComponent<SubMenuButton>().click());
-			tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name), Math.Round(point.distance, 3));
+	            Button tempButton = Instantiate(buttonModel) as Button;
+	            tempButton.transform.SetParent(scrollBar.transform);
+	            tempButton.GetComponent<RectTransform>().localPosition = new Vector3(0, currentPos, 0);
+	            tempButton.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+
+				tempButton.tag = "subMenuButton";
+				tempButton.gameObject.AddComponent<SubMenuButton>();
+	            tempButton.GetComponent<Button>().onClick.AddListener(() => tempButton.GetComponent<SubMenuButton>().click());
+				tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name), Math.Round(point.distance, 3));
+				tempButton.GetComponent<SubMenuButton>().point = point;
+			}
         }
 
 		buttonModel.GetComponent<Image>().enabled = false;
