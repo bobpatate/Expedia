@@ -32,7 +32,8 @@ public class Exploration : MonoBehaviour {
 			//Debug.Log("WWW Ok!: " + www.text);
 
 			//Empty list
-			points.RemoveAll();
+
+			points.RemoveAll(isExplorationPoint);
 
 			//Create and store nearby explorations points
 			var data = JSONNode.Parse(www.text);
@@ -74,4 +75,10 @@ public class Exploration : MonoBehaviour {
 	{
 		return expP1.distance.CompareTo(expP2.distance); 
 	}
+
+	private static bool isExplorationPoint(ExplorationPoint exp)
+	{
+		return true;
+	}
+
 }
