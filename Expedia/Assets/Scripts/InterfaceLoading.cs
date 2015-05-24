@@ -103,7 +103,7 @@ public class InterfaceLoading : MonoBehaviour {
 		foreach(GameObject GO in buttonsToRemove){
 			Destroy(GO);
 		}
-
+		GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().GenerateButtons();
 		GetComponent<Exploration>().Actualize();
 	}
 }
