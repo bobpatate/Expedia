@@ -15,12 +15,18 @@ public class GameMaster : MonoBehaviour {
 	}
 
 
-	internal Position playerLocation = new Position("point", 45.511877, -73.570050);
+	internal Position playerLocation;
 
 	public List<ExplorationPoint> points = new List<ExplorationPoint>(); //List of nearby points
+	public List<ExplorationPoint> pointsToIgnore = new List<ExplorationPoint>(); //List of nearby points
 
 	// Use this for initialization
 	void Start () {
+		if (Application.isEditor)
+		{
+			playerLocation = new Position("point", 45.511877, -73.570050);
+		}
+
 		GetComponent<CharacterStats>().OnStartup();
 		GetComponent<InterfaceLoading>().SetCanvaArray();
 	}
