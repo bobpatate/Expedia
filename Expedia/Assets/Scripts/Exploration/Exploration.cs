@@ -7,7 +7,7 @@ using SimpleJSON;
 using System.Text;
 
 public class Exploration : MonoBehaviour {
-	internal float radius = 0.5f; //TODO
+	internal float radius = 0.5f;
 	private List<ExplorationPoint> points = new List<ExplorationPoint>(); //List of nearby points
 
 	private string url;
@@ -60,11 +60,6 @@ public class Exploration : MonoBehaviour {
 
 			//Generate UI
 			GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().GenerateButtons();
-
-			foreach(ExplorationPoint point in GameMaster.instance.points)
-			{
-				//Debug.Log(point.name + ", " + point.position.coordinates[0] + ", " + point.position.coordinates[1]);
-			}
 		}
 		else {
 			Debug.Log("WWW Error: "+ www.error);

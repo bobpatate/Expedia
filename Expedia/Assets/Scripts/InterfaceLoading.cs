@@ -49,10 +49,11 @@ public class InterfaceLoading : MonoBehaviour {
         canvaArray[index].enabled = true;
 
 		//Start exploration actualization
-		if(index == EXPLORATION)
-			StartCoroutine("refreshExploration");
+		if(index == EXPLORATION){
+			InvokeRepeating("refreshExploration", 0, 15f);
+		}
 		else
-			StopCoroutine("refreshExploration");
+			CancelInvoke();
     }
 
     //------------------------------------------------------------------------------------------
@@ -94,8 +95,8 @@ public class InterfaceLoading : MonoBehaviour {
         Load(STATS);
     }
 
-	IEnumerator refreshExploration(){
+
+	void refreshExploration(){
 		GetComponent<Exploration>().Actualize();
-		yield return new WaitForSeconds(15f);
 	}
 }

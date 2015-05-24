@@ -58,11 +58,6 @@ public class Objectives : MonoBehaviour {
 			
 			//Generate UI
 			GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().GenerateButtons();
-			
-			foreach(ExplorationPoint point in GameMaster.instance.points)
-			{
-				//Debug.Log(point.name + ", " + point.position.coordinates[0] + ", " + point.position.coordinates[1]);
-			}
 		}
 		else {
 			Debug.Log("WWW Error: "+ www.error);
