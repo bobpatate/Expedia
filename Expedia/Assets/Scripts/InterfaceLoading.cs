@@ -40,15 +40,13 @@ public class InterfaceLoading : MonoBehaviour {
         {
             if (i != index)
             {
-                if (canvaArray[i].name != "Menu") canvaArray[i].transform.FindChild("Panel").GetComponent<Animation>().Rewind();
-                else canvaArray[i].transform.FindChild("Panel").GetComponent<Animation>().Play(); //The anim for the Menu is reversed
-                //canvaArray[i].enabled = false;
+                if (canvaArray[i].name == "Menu") canvaArray[i].transform.FindChild("Panel").GetComponent<Animation>().Play(); //The anim for the Menu is reversed
+                else canvaArray[i].enabled = false;
             }
         }
 
-        if (canvaArray[index].name != "Menu") canvaArray[index].transform.FindChild("Panel").GetComponent<Animation>().Play();
-        else canvaArray[index].transform.FindChild("Panel").GetComponent<Animation>().Play();
-        //canvaArray[index].enabled = true;
+        if (canvaArray[index].name == "Menu") canvaArray[index].transform.FindChild("Panel").GetComponent<Animation>().Play("MenuInterfaceOtherSide");
+        canvaArray[index].enabled = true;
 
 		//Start exploration actualization
 		if(index == EXPLORATION)
@@ -89,6 +87,11 @@ public class InterfaceLoading : MonoBehaviour {
     public void Button_LoadQuest()
     {
         Load(QUEST);
+    }
+
+    public void Button_LoadCollection()
+    {
+        Load(COLLECTION);
     }
 
 	IEnumerator refreshExploration(){
