@@ -59,6 +59,7 @@ public class ScrollBarInterface : MonoBehaviour {
 
 			tempButton.tag = "subMenuButton";
 			tempButton.gameObject.AddComponent<SubMenuButton>();
+			tempButton.GetComponent<Button>().onClick.AddListener(() => tempButton.GetComponent<SubMenuButton>().click());
 			tempButton.GetComponent<SubMenuButton>().setText(point.name, Math.Round(point.distance, 3));
         }
     }

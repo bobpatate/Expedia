@@ -39,8 +39,9 @@ public class SubMenuButton : MonoBehaviour {
 	}
 
 	public void click(){
+		Debug.Log("sup");
 		if(canTake){
-			//TODO take
+			//TODO take, add to a taken list, compare when creating list, reset list to delete item, add exp, add trophy
 		}
 	}
 }
