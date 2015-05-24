@@ -192,7 +192,7 @@ MonoBehaviour:
   scrollBar: {fileID: 70910736}
   buttonModel: {fileID: 1620106103}
   offsetBetweenButton: 0
-  isExploration: 0
+  isExploration: 1
 --- !u!1 &24564511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,7 +2397,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 687810093}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -4036,6 +4036,7 @@ GameObject:
   - 114: {fileID: 1181074176}
   - 114: {fileID: 1181074177}
   - 114: {fileID: 1181074178}
+  - 114: {fileID: 1181074179}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -4108,6 +4109,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 391e633d71a8ad24bb408e4f7eb1d502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1181074179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1181074173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5764cbbbe9e499abc5a64b62d893bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1232885538
