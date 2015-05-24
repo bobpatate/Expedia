@@ -15,7 +15,7 @@ public class Exploration : MonoBehaviour {
 	public void Actualize(){
 		radius = GameObject.Find("GameMaster").GetComponent<CharacterStats>().GetViewRange() * 0.001f;
 		
-		Geolocalisation.Start();
+		StartCoroutine(Geolocalisation.Start());
 		if(!Geolocalisation.isRunning){
 			url = "http://terminal2.expedia.com:80/x/geo/features?within="+ radius +"km&lat="+ GameMaster.instance.playerLocation.coordinates[0] +"&lng="+ GameMaster.instance.playerLocation.coordinates[1] +"&type=point_of_interest&apikey=azCQTn91WiTmxxlaKWG63YZk2z1fpXxA";
 

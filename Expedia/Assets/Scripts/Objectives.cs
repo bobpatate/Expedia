@@ -48,7 +48,7 @@ public class Objectives : MonoBehaviour {
 				                                                data[i]["position"]["coordinates"][0].AsDouble,
 				                                                (string)data[i]["status"]);
 				points.Add(newExpP);
-				Debug.Log (newExpP.position.coordinates[0]);
+				Debug.Log (newExpP.distance);
 			}
 			
 			//Sort points by distance

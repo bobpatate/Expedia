@@ -4,15 +4,14 @@ using UnityEngine.UI;
 
 
 public class Geolocalisation {
-	static internal bool isRunning = false;
+	static internal bool isRunning = true;
 	
 	static public IEnumerator Start()
 	{
-		isRunning = true;
-		
 		// First, check if user has location service enabled
-		if (!Input.location.isEnabledByUser)
+		if (!Input.location.isEnabledByUser){
 			yield break;
+		}
 		
 		// Start service before querying location
 		Input.location.Start();
