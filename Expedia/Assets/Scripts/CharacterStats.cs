@@ -5,12 +5,12 @@ public class CharacterStats : MonoBehaviour {
     
     //stats variables
     private int experience = 0; //Decides how many level the character has
-    private int currentLevelXP;
+    private int currentLevelXP=0;
     public int[] xpTier; //The milestone of xp needed to level up (Xp milestone for each level, not cumulative
-    private int level; 
-    private string title; //Purely cosmetic
+    private int level=1; 
+    private string title="Tourist"; //Purely cosmetic
     public string[] titleList; //Reward per level
-    private float viewRange; //The range at which you can see the exploration node
+    private float viewRange=500; //The range at which you can see the exploration node
     public float[] viewRangeTier; //The view range for each level
 
     //Accessor
