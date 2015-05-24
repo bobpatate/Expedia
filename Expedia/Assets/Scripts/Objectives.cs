@@ -7,8 +7,8 @@ using SimpleJSON;
 using System.Text;
 
 public class Objectives : MonoBehaviour {
-	internal float radius = 0.5f;
-	private List<ExplorationPoint> points = new List<ExplorationPoint>(); //List of nearby points
+	internal float radius = 5f;
+	private List<ExplorationPoint> points = new List<ExplorationPoint>(); //List of all points
 	
 	private string url;
 	
@@ -54,10 +54,10 @@ public class Objectives : MonoBehaviour {
 			points.Sort(CompareListBy);
 			
 			//Record in GameMaster
-			GameMaster.instance.points = points;
+			GameMaster.instance.pointsObjetives = points;
 			
 			//Generate UI
-			GameObject.Find("Exploration").GetComponent<ScrollBarInterface>().GenerateButtons();
+			GameObject.Find("Objective").GetComponent<ScrollBarInterface>().GenerateButtons();
 		}
 		else {
 			Debug.Log("WWW Error: "+ www.error);
@@ -66,7 +66,7 @@ public class Objectives : MonoBehaviour {
 	
 	private static int CompareListBy(ExplorationPoint expP1, ExplorationPoint expP2)
 	{
-		return expP1.distance.CompareTo(expP2.name); 
+		return expP1.name.CompareTo(expP2.name); 
 	}
 	
 	private static bool isExplorationPoint(ExplorationPoint exp)

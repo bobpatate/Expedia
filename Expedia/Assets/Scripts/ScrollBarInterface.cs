@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class ScrollBarInterface : MonoBehaviour {
@@ -12,6 +13,8 @@ public class ScrollBarInterface : MonoBehaviour {
 
     //Button Variables
     public float offsetBetweenButton;
+
+	public bool isExploration;
 
 	void Start()
     {
@@ -45,8 +48,16 @@ public class ScrollBarInterface : MonoBehaviour {
         
 		//Create buttons
 		bool first = true;
-		
-		foreach(ExplorationPoint point in GameMaster.instance.points){
+
+		List<ExplorationPoint> pointsToCompare;
+		if(isExploration){
+			pointsToCompare = GameMaster.instance.points;
+		}
+		else{
+			pointsToCompare = GameMaster.instance.pointsObjetives;
+		}
+
+		foreach(ExplorationPoint point in pointsToCompare){
 			bool skip = false;
 			foreach(ExplorationPoint pointMaybeIgnore in GameMaster.instance.pointsToIgnore){
 				if(point.name == pointMaybeIgnore.name){
@@ -69,7 +80,12 @@ public class ScrollBarInterface : MonoBehaviour {
 				tempButton.tag = "subMenuButton";
 				tempButton.gameObject.AddComponent<SubMenuButton>();
 	            tempButton.GetComponent<Button>().onClick.AddListener(() => tempButton.GetComponent<SubMenuButton>().click());
-				tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name), Math.Round(point.distance, 3));
+				if(isExploration){
+					tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name), Math.Round(point.distance, 3));
+				}
+				else{
+					tempButton.GetComponent<SubMenuButton>().setText(RemoveLastPartOfPOI(point.name));
+				}
 				tempButton.GetComponent<SubMenuButton>().point = point;
 			}
         }

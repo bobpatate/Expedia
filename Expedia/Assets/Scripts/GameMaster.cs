@@ -26,6 +26,8 @@ public class GameMaster : MonoBehaviour {
 
 	public List<ExplorationPoint> points = new List<ExplorationPoint>(); //List of nearby points
 	public List<ExplorationPoint> pointsToIgnore = new List<ExplorationPoint>(); //List of nearby points
+	public List<ExplorationPoint> pointsObjetives = new List<ExplorationPoint>(); //List of nearby points
+
 
 	// Use this for initialization
 	void Start () {

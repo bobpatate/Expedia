@@ -45,18 +45,22 @@ public class SubMenuButton : MonoBehaviour {
 
 	}
 
+	public void setText(string newText){
+		name = newText;
+		transform.FindChild("Text").GetComponent<Text>().text = name;		
+	}
+
 	public void obtainExp(){
 		
 	}
 
 	public void click(){
 		if(canTake){
-			//TODO pop-up
 			//Add to ignore list
 			gameMaster.pointsToIgnore.Add(point);
 
 			//Pop-up and quit interface
-				//Call pop-up
+			//TODO Call pop-up
 			gameMaster.GetComponent<InterfaceLoading>().Button_LoadMenu();
 
 			//Add xp/trophy
