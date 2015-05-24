@@ -10,7 +10,7 @@ public class PopUp_Script : MonoBehaviour {
     
 	void Start()
     {
-        name = transform.FindChild("Panel").FindChild("Name").GetComponent<Text>();
+        //name = transform.FindChild("Panel").FindChild("Name").GetComponent<Text>();
         xpGained = transform.FindChild("Panel").FindChild("XpGained").GetComponent<Text>();
     }
 
@@ -19,6 +19,8 @@ public class PopUp_Script : MonoBehaviour {
         This.GetComponent<AudioSource>().Play();
         name.text = _name;
         xpGained.text = _xpGained.ToString() + " XP Gained!";
+        This.enabled = true;
+        This.enabled = false;
         This.enabled = true;
     }
 
