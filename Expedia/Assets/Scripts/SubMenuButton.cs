@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SubMenuButton : MonoBehaviour {
 
@@ -9,11 +10,19 @@ public class SubMenuButton : MonoBehaviour {
 	public double dist;
 
 	public bool canTake = false;
-	public float canTakeDist = 0.195f;
+	public float canTakeDist = 0.200f;
+
+	public ExplorationPoint point;
+
+	private GameMaster gameMaster;
+	private StatsInterface stats;
 
 	// Use this for initialization
 	void Start () {
 		GetComponent<Button>().interactable = false;
+
+		gameMaster = GameMaster.instance;
+		stats = GameObject.Find("Stats").GetComponent<StatsInterface>();
 	}
 	
 	// Update is called once per frame
@@ -41,9 +50,19 @@ public class SubMenuButton : MonoBehaviour {
 	}
 
 	public void click(){
-		Debug.Log("sss");
 		if(canTake){
-			//TODO take, add to a taken list, compare when creating list, reset list to delete item, add exp, add trophy, pop-up
+			//TODO add trophy, pop-up, actualize nbr trophies
+			//Add to ignore list
+			gameMaster.pointsToIgnore.Add(point);
+
+			//Pop-up and quit interface
+				//Call pop-up
+			gameMaster.GetComponent<InterfaceLoading>().Button_LoadMenu();
+
+			//Add xp/trophy
+			gameMaster.GetComponent<CharacterStats>().AddXp(10);
+			stats.addSmallTrophy();
+			stats.OnLoad();
 		}
 	}
 }
