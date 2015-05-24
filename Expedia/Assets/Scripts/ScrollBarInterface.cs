@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -58,7 +59,7 @@ public class ScrollBarInterface : MonoBehaviour {
 
 			tempButton.tag = "subMenuButton";
 			tempButton.gameObject.AddComponent<SubMenuButton>();
-			tempButton.GetComponent<SubMenuButton>().setText(point.name, point.distance);
+			tempButton.GetComponent<SubMenuButton>().setText(point.name, Math.Round(point.distance, 3));
         }
     }
 }

@@ -41,8 +41,8 @@ public class Exploration : MonoBehaviour {
 				                                                (uint)data[i]["source"]["srcId"].AsInt,
 				                                                (uint)data[i]["source"]["systemId"].AsInt,
 				                                                (string) data[i]["position"]["type"],
-				                                                data[i]["position"]["coordinates"][0].AsDouble,
 				                                                data[i]["position"]["coordinates"][1].AsDouble,
+				                                                data[i]["position"]["coordinates"][0].AsDouble,
 				                                                (string)data[i]["status"]);
 				points.Add(newExpP);
 			}

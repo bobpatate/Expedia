@@ -32,6 +32,10 @@ public class GeoDistance {
 	//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 	static public double calc(double lat1, double lon1, double lat2, double lon2, char unit) {
+		Debug.Log(lat1);
+		Debug.Log(lon1);
+		Debug.Log(lat2);
+		Debug.Log(lon2);
 		double theta = lon1 - lon2;
 		double dist = Math.Sin(deg2rad(lat1)) * Math.Sin(deg2rad(lat2)) + Math.Cos(deg2rad(lat1)) * Math.Cos(deg2rad(lat2)) * Math.Cos(deg2rad(theta));
 		dist = Math.Acos(dist);
