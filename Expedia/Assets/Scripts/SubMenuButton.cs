@@ -37,17 +37,14 @@ public class SubMenuButton : MonoBehaviour {
 		}
 	}
 
-	public void setText(string newText, double newText1){
+	public void setText(string newText, double newText1, bool showDist){
 		name = newText;
-		dist = newText1;
 		transform.FindChild("Text").GetComponent<Text>().text = name;
-		transform.FindChild("Text1").GetComponent<Text>().text = dist.ToString() + " km";
 
-	}
-
-	public void setText(string newText){
-		name = newText;
-		transform.FindChild("Text").GetComponent<Text>().text = name;		
+		if(showDist){
+			dist = newText1;
+			transform.FindChild("Text1").GetComponent<Text>().text = dist.ToString() + " km";
+		}
 	}
 
 	public void obtainExp(){
