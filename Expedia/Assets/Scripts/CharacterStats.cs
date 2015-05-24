@@ -35,9 +35,12 @@ public class CharacterStats : MonoBehaviour {
     public void OnStartup() //Only use on startup
     {
         int tempLevel = 1;
-        int xpTotal = 0; //Set from save file TODO
 
-        //Find what level the player is
+		// Load from PlayerPref
+		int xpTotal = PlayerPrefs.GetInt("XP");
+		experience = xpTotal;
+        
+		//Find what level the player is
         while (xpTotal > xpTier[tempLevel-1])
         {
             xpTotal -= xpTier[tempLevel - 1];
@@ -55,6 +58,7 @@ public class CharacterStats : MonoBehaviour {
     {
         experience += amountXP; //Add xp to the total
         currentLevelXP += amountXP; //Add xp to current level
+		PlayerPrefs.SetInt("XP", experience);
 
         if (currentLevelXP > xpTier[level-1]) //If the xp is higher than the current milestone -> Level Up
         {
